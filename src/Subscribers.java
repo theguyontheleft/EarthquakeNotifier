@@ -6,9 +6,11 @@
 // The subscriber class will contain a linked list of all of the subscribers
 public class Subscribers {
 
-	public int data1;
-	public double data2;
-	//public 
+	public int xPosition;
+	public int yPosition;
+	public String subscriberName;
+
+	// public
 	public Subscribers nextSubscriber;
 
 	// Link constructor
@@ -18,17 +20,24 @@ public class Subscribers {
 
 	// Print Link data
 	public void printLink() {
-		System.out.print("{" + data1 + ", " + data2 + "} ");
+		System.out.print("{" + xPosition + ", " + yPosition + "} ");
 	}
 }
 
 class LinkList {
-	
+
 	// Head is the name of the first subscriber
 	private Subscribers head;
+	private Subscribers tail;
 
 	// LinkList constructor
 	public LinkList() {
+		head = null;
+	}
+
+	// LinkList constructor
+	public LinkList(int x, int y) {
+
 		head = null;
 	}
 
@@ -38,8 +47,12 @@ class LinkList {
 	}
 
 	// Inserts a new Link at the head of the list
-	public void insert(int d1, double d2) {
+	public void insert(int x, int y) {
 		Subscribers subscriber = new Subscribers();
+		
+		subscriber.xPosition = x;
+		subscriber.yPosition = y;
+		
 		subscriber.nextSubscriber = head;
 		head = subscriber;
 	}
@@ -61,17 +74,15 @@ class LinkList {
 		}
 		System.out.println("");
 	}
-	
-	public void printSubscriberAdded()
-	{
+
+	public void printSubscriberAdded() {
 		// <name> is removed from the watchers list
 	}
-	
-	public void printSubscriberDeleted()
-	{
+
+	public void printSubscriberDeleted() {
 		// <name> is removed from the watchers list
 	}
-	
+
 }
 
 class LinkListTest {
@@ -79,8 +90,8 @@ class LinkListTest {
 		LinkList watchers = new LinkList();
 
 		// Test watchers here
-		//watchers.insert(1, 1.01);
-		
+		// watchers.insert(1, 1);
+
 		watchers.printList();
 
 		while (!watchers.isEmpty()) {
@@ -89,7 +100,7 @@ class LinkListTest {
 			deletedLink.printLink();
 			System.out.println("");
 		}
-		
+
 		watchers.printList();
 	}
 }

@@ -1,3 +1,6 @@
+import realtimeweb.earthquakeservice.regular.EarthquakeService;
+import realtimeweb.earthquakewatchers.WatcherService;
+
 // James Dagres
 // 9057-48682
 // CS 3114 
@@ -25,15 +28,15 @@
 
 public class eqsimple {
 
-	// Constructor method initializes references to the three structures used, and the 
-	// 
-	public eqsimple()
-	{
-	//	private EarthquakeService earthquakeService = EarthquakeService.getInstance();
-	//	private WatcherService watcherService = WatcherService.getInstance();
-	//	private static Subscribers subscriber = new Subscribers();
+	// Constructor method initializes references to the three structures used,
+	// and the
+	public eqsimple() {
+		EarthquakeService earthquakeService = EarthquakeService.getInstance();
+		WatcherService watcherService = WatcherService.getInstance();
+		Subscribers subscriber = new Subscribers();
+		//TODO: add an instance of a linkedQue and a max heap 
 	}
-	
+
 	// This is the main function that receives the command line string.
 	public static void main(String[] args) {
 		argumentHelper(args);
